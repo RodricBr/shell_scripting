@@ -1,6 +1,5 @@
 #!/usr/bin/bash
-# 29/06/2021 7:00
-
+### 29/06/2021
 ## Executando comandos dentro do VIM ##
 
 # Dentro do modo de comando(ESC)
@@ -15,7 +14,7 @@ comando=$1
 valor1=$2
 valor2=$3
 
-# Comentário gigante
+## Comentário gigante (here-document)
 # : é um comando null para ignorar
 # o que estiver ao lado direito dele
 # mesmo ele sendo 'ignorado', a shell
@@ -23,12 +22,16 @@ valor2=$3
 # existe outro método de fazer
 # comentários gigantes além desse
 # o << está atribundo o : para uma
-# 'variável' chamada 'FIM'
+# 'variável' ou um marcador chamado 'FIM'
 : Comentário normal
 : << 'FIM'
 if [ "$comando" == "-h" ]; then
 	printf "\\n * Uso:\\n  # program.sh (-h) (número 1) (número 2)\\n";
 else
+	verifica
+fi
+
+if [ -z "$comando" ] && [ -z "$valor1" ] && [ -z "$valor2" ]; then
 	verifica
 fi
 
@@ -86,7 +89,7 @@ fi
 #	printf "\\n  * Uso:\\n\\t# program.sh (-h) (número 1) (número 2)\\n";
 #fi
 
-# Comando de Teste, também conhecido por [ ou [[
+## Comando de Teste, também conhecido por [ ou [[
 # pode carregar operações mais complexas
 #[[ -e "$file" ]] # True se o arquivo existe
 #[[ -d "$file" ]] # True se o arquivo existe e é um diretório
@@ -94,11 +97,11 @@ fi
 #[[ -z "$file" ]] # True se a string tiver comprimento = zero
 #[[ -n "$file" ]] # True se a string não tiver comprimento = zero
 
-# Comparar strings
+## Comparar strings
 #[[ "$str1" == "$str2" ]] # $str1 é igual a $str2
 #[[ "$str1" != "$str2" ]] # $str1 é diferente da $str2
 
-# Comparanções de inteiros
+## Comparanções de inteiros
 #[[ "$int1" -eq "$int2" ]] # $int1 == $int2
 #[[ "$int1" -ne "$int2" ]] # $int1 != $int2
 #[[ "$int1" -gt "$int2" ]] # $int1 > $int2
@@ -106,7 +109,7 @@ fi
 #[[ "$int1" -ge "$int2" ]] # $int1 >= $int2
 #[[ "$int1" -le "$int2" ]] # $int1 <= $int2
 
-# Nota: o [ é na verdade um comando
+# Nota 1: o [ é na verdade um comando
 # [ e [[ são para operações mais abstratas
 # [ e ( são mais limitados e funcionam sem o shebang
 # [[ e (( só pode ser interpretado se o shebang for adicionado
@@ -114,14 +117,21 @@ fi
 # Consulte o "man test" para mais informações
 # a respeito de expressões
 
-# AND & OR
+# Nota 2: o ; e o & representam o
+# fim de um comando, o ; representa
+# uma nova linha
+# o ;; somente é usada em case
+# constructs para indicar o fim de uma
+# alternativa, parecido com o 'break' no C
+
+## AND & OR
 #if [[ "$valor1" == "$valor2"]] && [[ "$valor1" == "$valor2" ]]; then
 #	echo "&& represenda AND";
 #else
 #	echo "|| representa OR";
 #fi
 
-# Condicionais
+## Condicionais
 # 1. Retornar valores
 # Se o arquivo nota.md não existe,
 # cria uma e adiciona o texto "criado pelo bash"
@@ -151,6 +161,16 @@ fi
 #else
 #	echo "Nenhum argumento aprovado";
 #fi
+
+## Utilizando o case!
+resposta=$1
+# Se o usuário digitar 'sim'
+# no primeiro argumento,
+# printa 'yay!'
+case $resposta in
+	sim) echo "yay!";;
+	nao) echo "noo!";;
+esac
 
 # Loopings
 for (( i = 1; i <= 10; ++i )); do
