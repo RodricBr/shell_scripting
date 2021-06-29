@@ -2,4 +2,4 @@
 
 Begginer to Advanced
 
-Shell Scripting is epic!
+Shell Scripting
