@@ -270,10 +270,14 @@ array[9]='NULO'; # Adicionando string 'NULO' para a posição 9
 array[999]="Teste";
 
 # Remover
-
+# O comando unset não rearranjará o array, ou seja,
+# os índices continuaram os mesmos e somente o
 unset array[999]; # Indique o índice de um elemento para remover
 unset array[9]; # Indique o índice de um elemento para remover
 
+# O comando unset não rearranjará o array, ou seja,
+# os índices continuaram os mesmos e somente o
+# elemento 999 e 9 é que deixará de existir
 
 array=("${array[@]:0:1}" 'OLA' "${array[@]:1}") # Adicionando 'OLA' para o array
 # da posição 0 para 1, e da posição 1(no meio do S e H )
