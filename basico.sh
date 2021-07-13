@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-### 29/06/2021
+### Update: 12/07/2021
 ## Executando comandos dentro do VIM ##
 
 # Dentro do modo de comando(ESC)
@@ -283,5 +283,20 @@ array=("${array[@]:0:1}" 'OLA' "${array[@]:1}") # Adicionando 'OLA' para o array
 # da posição 0 para 1, e da posição 1(no meio do S e H )
 echo "${array[@]}";
 
+saudacoes() {
+        echo "Ola, ${@}"
+}
+# Todos os argumentos da função podem ser acessados usando o @
 
+## Coisinhas a mais :)
+## Operações em variáveis
+A=abc123foo.txt
 
+# Sufixo de strip:
+strip ${A%.txt} # abc123foo
+
+# Sufixo de strip com globbing:
+strip ${A%foo*} # abc123
+
+# Sufixo de strip:
+echo ${A#abc} # 123foo.txt
