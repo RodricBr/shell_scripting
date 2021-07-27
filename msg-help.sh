@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+# Muito útil para a criação de programas grandes que necessitam
+# informação aplicada em argumentos através do bash
+
 argumento1=$1
 versao='1.0'
 
