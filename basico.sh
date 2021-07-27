@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
-#### 26/07/2021
+### 27/07/2021
+
 ## Executando comandos dentro do VIM ##
 # Dentro do modo de comando(ESC)
 # :read ! which bash
@@ -408,5 +409,9 @@ for file in /{,usr/}bin/*calc do
 	fi
 done
 
+## Escape [\]
+# Um mecanismo de quoting em caracteres únicos
+# \x escape character X. esse tem o efeito esquivalente a 'X'
+# o \ pode ser usado para quotar " e ', então eles são expressos literalmente
 
 
