@@ -1,8 +1,7 @@
 #!/usr/bin/bash
 
-### Update: 12/07/2021
+#### 26/07/2021
 ## Executando comandos dentro do VIM ##
-
 # Dentro do modo de comando(ESC)
 # :read ! which bash
 # output: /usr/bin/bash
@@ -67,16 +66,16 @@ FIM
 
 # Verifica se o usuário não passou nenhum argumento (-z)
 function verifica() {
-if [[ -z "$comando" || "$valor1" || "$valor2" ]]; then
-	printf "Nenhum argumento passado!\\nTente novamente executando o comando -h\\n";
-	exit 0
-elif [[ -n "$valor1" || -n "$valor2" ]]; then
-	echo "valores nulos";
-	# O ":" significa não fazer nada a partir desse ponto
-	# :
-else
-	exit 1
-fi
+	if [[ -z "$comando" || "$valor1" || "$valor2" ]]; then
+		printf "Nenhum argumento passado!\\nTente novamente executando o comando -h\\n";
+			exit 0
+	elif [[ -n "$valor1" || -n "$valor2" ]]; then
+		echo "valores nulos";
+		# O ":" significa não fazer nada a partir desse ponto
+		# :
+	else
+		exit 1
+	fi
 }
 #printf "\\nExecutando: $0";
 #printf "\\n";
@@ -284,7 +283,7 @@ array=("${array[@]:0:1}" 'OLA' "${array[@]:1}") # Adicionando 'OLA' para o array
 echo "${array[@]}";
 
 saudacoes() {
-        echo "Ola, ${@}"
+	echo "Ola, ${@}"
 }
 # Todos os argumentos da função podem ser acessados usando o @
 
@@ -300,3 +299,114 @@ strip ${A%foo*} # abc123
 
 # Sufixo de strip:
 echo ${A#abc} # 123foo.txt
+
+# Prefixo de strip com globbing:
+echo ${A#*c} # 123foo.txt
+
+## Tipos avançados de comentário e characteres especiais
+# Fonte: tldp.org/LDP/abs/html/special-chars.html
+
+echo "Esse # não começará um comentário"
+echo 'Esse # não começará um comentário'
+echo Esse \# não começará um comentário
+echo Esse # começará um comentário
+
+echo ${PATH#*:}      # Parâmetro de substituição, não é um comentário
+echo $(( 2#101011 )) # Conversão de base, não é um comentário
+
+## Separador de comando [;]
+# Permite botar um ou mais comandos na mesma linha
+
+echo hello; echo world
+
+if [ -x "$filename" ]; then    # Nota o espaço depois do ponto e vírgula
+#+
+	echo "O arquivo $filename não existe"; cp $filename $filename.bak
+else
+	echo "O arquivo $filename não foi encontrado"; touch $filename
+fi; echo "Fim"
+
+# As vezes o ponto e vírgula precisam ser envolvidos em aspas ";"
+# O ponto e vírgula é envolvido em aspas para usar o comando
+#+ find literalmente, sem ser interpretado como um caractere especial
+# Ex:
+find ~/ -name '*.txt'
+
+# Se o comando contém {}, então o find substitui o path name completo
+#+ do arquivo selecionado para "{}"
+# Ex:
+find ~/ -name 'core*' -exec rm {} \;
+# Remove todos os arquivos de despejo de núcleo do diretório inicial do usuário
+#+ (core dump files)
+# Para mais info: tldp.org/LDP/abs/html/moreadv.html#FINDREF0
+
+## Terminator [;;]
+case "$variavel" in
+	abc) echo "\$variavel = abc" ;;
+	xyz) echo "\$variavel = xyz" ;;
+esac
+
+## Terminators in case option (Bash versão 4+)
+# ;;&  e  ;&
+
+## Ponto [.]
+# Equivalente a 'source'
+# Ex:
+. data-file      # Carrega uma data file
+source data-file # A mesma coisa que o ponto
+
+## Ponto como um componente de um filename
+# Quando trabalhamos com filenames, a prefixo principal
+#+ do ponto é de um arquivo 'escondido',
+#+ um arquivo que o ls normalmente não vai mostrar
+touch .hidden-file
+# ls -l ou ll irá mostrar os arquivos escondidos
+
+# Ao considerar os nomes de diretório, um único ponto[.] representa
+#+ o diretório de trabalho atual e dois pontos[..] indicam o diretório anterior,
+#+ ou o diretório pai
+
+: << 'Comentario'
+
+Ex:
+bash$ cd .
+bash$ pwd
+/home/user/projetos
+
+bash$ cd ..
+bash$ pwd
+/home/user/
+
+Comentario
+
+# O ponto também pode aparecer como o destino (diretório) de um comando
+#+ de movimentação de arquivo, neste contexto significando o diretório atual
+
+# bash$ cp /home/user/trabalho/lixo/* .
+# Copia todos os arquivos 'lixo' para $PWD
+
+## Partial quoting ["]
+# "STRING" preserva a maioria dos caracteres especiais dentro de STRING
+
+## Full quoting [']
+# 'STRING' preserva todos os caracteres especiais dentro de STRING
+#+ essa é uma forma mais forte doq a "STRING"
+
+## Comma operator [,]
+# O operador da vírgula linka junto uma série de operadores aritiméticos
+#+ todos são avaliados, porém apenas o último é retornado
+let "t2 = ((a = 9, 15 / 3))"
+# Define que "a = 9" e "t2 = 15 /3"
+
+# O operador da vírgula também pode concatenar strings
+for file in /{,usr/}bin/*calc do 
+#             ^ Encontra todos os arquivodes executáveis terminando com 'calc'
+##            dentro dos diretórios /bin e /usr/bin
+	if [ -x "$file" ]
+	then
+		echo $file
+	fi
+done
+
+
+
