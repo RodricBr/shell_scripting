@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+# 'man shell wrappers' para mais informação
+
 # $* == Todos os parâmetros posicionais são vistos como strings únicas
 # $# == Número de argumentos da linha do comando
 # $@ == Cada parâmetro é listado como uma string separada
