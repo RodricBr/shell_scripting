@@ -3,6 +3,9 @@
 # Muito útil para a criação de programas grandes que necessitam
 # informação aplicada em argumentos através do bash
 
+# Ex: ./programa.sh -h/--help [Exibe a função '_Ajuda_']
+# Ex: ./programa.sh -v/--version [Exibe a variável 'versao']
+
 argumento1=$1
 versao='1.0'
 
