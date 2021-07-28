@@ -25,6 +25,7 @@ badargs=65
 echo -e "\n<---------------------------------------------------------------->\n"
 
 # Se o argumento inicial '1' for zero '-z'...
+# $(basename "$0") = nome de um arquivo dado (Param 1 é o nome do programa)
 if [[ -z "$1" ]]; then
 	echo -e "\n${GREEN}Como usar:${END}${BLUE} $(basename "$0") argumento1, argumento2, argumento3, etc...${END}\n"
 	exit $badargs
