@@ -1,14 +1,14 @@
 #!/usr/bin/bash
 
-# ==================#
+# ================= #
 # Criado 27/07/2021 #
-# ==================#
+# ================= #
 
 # ================
 # Variáveis de Cor
 # ================
 
-RED='\033[31;1m' # \033[31m = Vermelho ';' é concatenação e \033[1m é Negrito
+RED='\033[31;1m' # \033[31m = Vermelho ';' concatena o Vermelho com o \033[1m é Negrito
 GREEN='\033[32;1m' # \033[32m = Verde
 BLUE='\033[34;1m' # \033[34m = Azul
 YELLOW='\033[33;1m' # \033[33 = Amarelo
@@ -22,7 +22,7 @@ END='\033[m' # Reseta a cor
 # Número de parâmetros errados passado no script
 badargs=65
 
-echo -e "\n<---------------------------------------------------------------->\n"
+# Para fazer: Tentar não quebrar o código no stdin usando aspas simples e duplas
 
 # Se o argumento inicial '1' for zero '-z'...
 # $(basename "$0") = nome de um arquivo dado (Param 1 é o nome do programa)
@@ -34,41 +34,46 @@ fi
 # Incicializa a contagem
 index=1
 
+echo -e "\n#---------------------------------------------------------------#\n"
+
+# \* == Output: *
+# "\*" == Output: \*
+# "\$" == Output: $
 # \" String[\$*] \"
-printf "${YELLOW}Listando os args usando:${END} \"\$*\":\n"
+printf "\t${YELLOW}Listando os args usando:${END} \"\$*\":\n"
 
 for arg in "$*"; do
-	echo -e "${RED}Arg número${END} $index = $arg"
+	echo -e "\t${RED}Arg número${END} $index = $arg"
 	let "index+=1"
 done
 
-printf "\n${GREEN}Lista inteira de argumentos vista como uma única palavra${END}\n"
-echo -e "\n<---------------------------------------------------------------->\n"
+printf "\n\t${GREEN}Lista inteira de argumentos vista como uma única palavra${END}\n"
+echo -e "\n#---------------------------------------------------------------#\n"
 
 index=1
 
-printf "${YELLOW}Listando os args usando:${END} \"\$@\":\n"
+printf "\t${YELLOW}Listando os args usando:${END} \"\$@\":\n"
 for arg in "$@"; do
-	echo -e "${RED}Arg número${END} $index = $arg"
+	echo -e "\t${RED}Arg número${END} $index = $arg"
 	let "index+=1"
 done
 
-printf "\n${GREEN}Lista de argumentos vista como palavras separadas${END}\n"
-echo -e "\n<---------------------------------------------------------------->\n"
+printf "\n\t${GREEN}Lista de argumentos vista como palavras separadas${END}\n"
+echo -e "\n#---------------------------------------------------------------#\n"
 
 # Reseta o contador
 index=1
 
-printf "${GREEN}Listando os args usando:${END} \$* (sem aspas):\n"
+printf "\t${YELLOW}Listando os args usando:${END} \$* (sem aspas):\n"
 
 # O $* sem aspas vê os argumentos como strings separadas
 for arg in $*; do
-	echo -e "${RED}Arg número${END} $index = $arg"
+	echo -e "\t${RED}Arg número${END} $index = $arg"
 	let "index+=1"
 done
 
-printf "\n${GREEN}Lista de argumentos vista como palavras separadas${END}\n"
-echo -e "\n<---------------------------------------------------------------->\n"
+printf "\n\t${GREEN}Lista de argumentos vista como palavras separadas${END}\n"
+echo -e "\n#---------------------------------------------------------------#\n"
 
 exit 0
 
