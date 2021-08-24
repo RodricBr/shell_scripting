@@ -15,13 +15,13 @@ if [[ "$senha" == "r0dricbr" ]]; then
   sleep 2
   echo -e "\n\t${VERDE}[+] Bem vindo,${FIM} $USER!\n"
   while true; do
-    echo -e "\n<============== Menu ==============>"
+    echo -e "\n<============== ${AZUL}M${VERDE}e${AMARELO}n${CYANO}u${FIM} ==============>"
     echo -e "\n\t${VERMELHO}[!] Menu de Opções:${FIM}\n\t ${AZUL}1 Diretório Atual\n\t 2 ID do Usuário\n\t 0 Sair da aplicação${FIM}"
     read -p "Sua escolha: " opcao_menu
-    echo ""
+    echo -e "\n<==================================>\n"
     case "$opcao_menu" in
           1) ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
-          2) echo -e "\t${CYANO}Info:${FIM} " $(id) ;;
+          2) echo -e "${CYANO}Info:${FIM} " $(id) ;;
           0) echo -e "${VERMELHO}Finalizando...${FIM}" ; exit 0 ;;
     esac
   done
