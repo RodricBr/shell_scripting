@@ -22,7 +22,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
   while true; do
     echo -e "\n<============== ${AZUL}M${VERDE}e${AMARELO}n${CYANO}u${FIM} ==============>"
     echo -e "\n\t${VERMELHO}[!] Menu de Opções:${FIM}\n\t ${AZUL}1 Diretório Atual\n\t 2 ID do Usuário\n\t 0 Sair da aplicação${FIM}"
-    read -p "Sua escolha: " opcao_menu
+    read -rp "Sua escolha: " opcao_menu
     echo -e "\n<==================================>\n"
     case "$opcao_menu" in
           1) ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
@@ -36,7 +36,7 @@ else
     exit 0
   else
     if [[ "$senha" != "r0dricbr" ]]; then
-      echo -e "\n\t${REd}Senha errada!${FIM}\n"
+      echo -e "\n\t${RED}Senha errada!${FIM}\n"
       exit 0
     fi
   fi
