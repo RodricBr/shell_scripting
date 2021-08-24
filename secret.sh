@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+: << 'FIM'
+Deixar com que apenas usuários permitidos possam ler
+e modificar o arquivo, para a senha não ser exibida
+FIM
+
 VERMELHO='\033[31;1m' # '\033[31m' = Vermelho ';' concatena o Vermelho com o '\033[1m' é Negrito
 VERDE='\033[32;1m' # '\033[32m' = Verde
 AZUL='\033[34;1m' # '\033[34m' = Azul
@@ -36,3 +41,4 @@ else
     fi
   fi
 fi
+#
