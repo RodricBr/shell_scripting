@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+# Exportando o arquivo 'cores.sh'
+#source "./cores.sh"
+
 : << 'FIM'
 Deixar com que apenas usuários permitidos possam ler
 e modificar o arquivo, para a senha não ser exibida
 FIM
 
-VERMELHO='\033[31;1m' # '\033[31m' = Vermelho ';' concatena o Vermelho com o '\033[1m', que é Negrito
+VERMELHO='\033[31;1m' # '\033[31m' = Vermelho ';' concatena o Vermelho com o '\033[1m' é Negrito
 VERDE='\033[32;1m' # '\033[32m' = Verde
 AZUL='\033[34;1m' # '\033[34m' = Azul
 AMARELO='\033[33;1m' # '\033[33' = Amarelo
@@ -21,14 +24,15 @@ if [[ "$senha" == "r0dricbr" ]]; then
   echo -e "\n\t${VERDE}[+] Bem vindo,${FIM} $USER!\n"
   while true; do
     echo -e "\n<============== ${AZUL}M${VERDE}e${AMARELO}n${CYANO}u${FIM} ==============>"
-    echo -e "\n\t${VERMELHO}[!] Menu de Opções:${FIM}\n\t ${AZUL}1 Diretório Atual\n\t 2 ID do Usuário\n\t 0 Sair da aplicação${FIM}"
-    read -rp "Sua escolha: " opcao_menu
-    echo -e "\n<==================================>\n"
+    echo -e "\n\t${VERMELHO}[!] Menu de Opções:${FIM}\n\t ${AZUL}1 Diretório Atual\n\t 2 ID do Usuário\n\t 3 Maior arquivo\n\t 0 Sair da aplicação${FIM}"
+    read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
     case "$opcao_menu" in
           1) ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
           2) echo -e "${CYANO}Info:${FIM} " $(id) ;;
+          3) read -rp "Diretório: " opcao_dir ; echo -e "\n${AMARELO}Tamanho | Arquivo\n   V         V${FIM}" ; du -a $opcao_dir | sort -n -r | head -n 10 ;;
           0) echo -e "${VERMELHO}Finalizando...${FIM}" ; exit 0 ;;
     esac
+    echo -e "\n<==================================>\n"
   done
 else
   if [[ -z "$senha" ]]; then
@@ -41,4 +45,3 @@ else
     fi
   fi
 fi
-#
