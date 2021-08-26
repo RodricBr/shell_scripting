@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Deixar com que o arquivo apenas possa ser lido/escrito por sudoers
+# senão a senha fica exposta
+
 # Exportando o arquivo 'cores.sh'
 #source "./cores.sh"
 
