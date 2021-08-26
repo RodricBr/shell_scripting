@@ -11,12 +11,12 @@ Deixar com que apenas usuários permitidos possam ler
 e modificar o arquivo, para a senha não ser exibida
 FIM
 
-VERMELHO='\033[31;1m' # '\033[31m' = Vermelho ';' concatena o Vermelho com o '\033[1m' é Negrito
-VERDE='\033[32;1m' # '\033[32m' = Verde
-AZUL='\033[34;1m' # '\033[34m' = Azul
-AMARELO='\033[33;1m' # '\033[33' = Amarelo
-CYANO='\033[0;36m' # '\033[0;36m' = Cyano
-FIM='\033[m' # Reseta a cor
+VERMELHO='\033[31;1m'  # '\033[31m' = Vermelho ';' concatena o Vermelho com o '\033[1m' é Negrito
+VERDE='\033[32;1m'     # '\033[32m' = Verde
+AZUL='\033[34;1m'      # '\033[34m' = Azul
+AMARELO='\033[33;1m'   # '\033[33' = Amarelo
+CYANO='\033[0;36m'     # '\033[0;36m' = Cyano
+FIM='\033[m'           # Reseta a cor
 
 senha=$1
 ajuda=$1
