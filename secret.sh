@@ -77,8 +77,9 @@ else
         echo -e "\tUsuário não autorizado\n\
         esse ato será reportado!\n
         "
-        touch $USER.txt
-        echo "$(time) - Usuário: $USER obteve acesso negado\n" >> $USER.txt
+        usuario=$USER
+        touch $usuario.txt
+        echo "$(time) - Usuário: $USER obteve acesso negado\n" >> $usuario.txt
       fi
       exit 0
     fi
