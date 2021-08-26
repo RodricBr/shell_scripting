@@ -27,7 +27,7 @@ _Ajuda_(){
     Modo de uso:\n \
     \t$0 <senha>\n\n \
     Comandos:\n \
-    \t-h | --help : Painel de ajuda\n \
+    \t-h | --help    : Painel de ajuda\n \
     \t-v | --version : Versão do programa
     "
 }
