@@ -19,6 +19,27 @@ CYANO='\033[0;36m' # '\033[0;36m' = Cyano
 FIM='\033[m' # Reseta a cor
 
 senha=$1
+ajuda=$1
+versao='1.0'
+
+_Ajuda_(){
+    echo -e "
+    Modo de uso:\n \
+    \t$0 <senha>\n\n \
+    Comandos:\n \
+    \t-h | --help : Painel de ajuda\n \
+    \t-v | --version : Versão do programa
+    "
+}
+
+case $ajuda in
+    "-h"|"--help") _Ajuda_
+        exit 0
+    ;;
+    "-v"|"--versao") echo -e "\nVersão: $versao"
+        exit 0
+    ;;
+esac
 
 if [[ "$senha" == "r0dricbr" ]]; then
   echo -e "\n\t${VERDE}Sucesso!${FIM}\n"
@@ -30,7 +51,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
     echo -e "\n\t${VERMELHO}[!] Menu de Opções:${FIM}\n\t ${AZUL}1 Diretório Atual\n\t 2 ID do Usuário\n\t 3 Maior arquivo\n\t 0 Sair da aplicação${FIM}"
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
     case "$opcao_menu" in
-          1) ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
+          1) echo -e "" ; ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
           2) echo -e "${CYANO}Info:${FIM} " $(id) ;;
           3) read -rp "Diretório: " opcao_dir ; echo -e "\n${AMARELO}Tamanho | Arquivo\n   V         V${FIM}" ; du -a $opcao_dir | sort -n -r | head -n 10 ;;
           0) echo -e "${VERMELHO}Finalizando...${FIM}" ; exit 0 ;;
