@@ -56,7 +56,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
  4 Processos em execução\n\t\
  0 Sair da aplicação${FIM}"
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
-    #du -a $opcao_dir | sort -n -r | head -n 10 antigo
+    #du -a $opcao_dir | sort -n -r | head -n 10 #antigo
     case "$opcao_menu" in
           1) echo -e "" ; ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
           2) echo -e "${CYANO}Info:${FIM} " $(id) ;;
@@ -73,6 +73,13 @@ else
   else
     if [[ "$senha" != "r0dricbr" ]]; then
       echo -e "\n\t${RED}Senha errada!${FIM}\n"
+      if [[ "$USER" != "rodric" ]]; then
+        echo -e "\tUsuário não autorizado\n\
+        esse ato será reportado!\n
+        "
+        touch $USER.txt
+        echo "$(time) - Usuário: $USER obteve acesso negado\n" >> $USER.txt
+      fi
       exit 0
     fi
   fi
