@@ -73,7 +73,7 @@ else
   else
     if [[ "$senha" != "r0dricbr" ]]; then
       echo -e "\n\t${RED}Senha errada!${FIM}\n"
-      if [[ "$USER" != "rodric" ]]; then
+      if [[ "$senha" != "r0dricbr" ]]; then
         echo -e "\tUsuário não autorizado\n\
         esse ato será reportado!\n
         "
