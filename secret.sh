@@ -77,10 +77,10 @@ else
         echo -e "\tUsuário não autorizado\n\
         esse ato será reportado!\n
         "
+        # Concertar! o debian não está criando o arquivo de report, só o gitbash
         usuario=$USER
-        dia_=$(date +"%d/%m/%y")
-        touch $usuario.txt
-        echo -e "$dia_ - Usuário '$usuario' obteve acesso negado\n" >> $usuario.txt
+        dia_=$(date +"%d/%m/%y | %T")
+        touch $usuario.txt | echo -e "$dia_ - Usuário '$usuario' obteve acesso negado\n" >> $usuario.txt
       else
         exit 0
       fi
