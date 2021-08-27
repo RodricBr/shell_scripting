@@ -78,9 +78,9 @@ else
         esse ato será reportado!\n
         "
         usuario=$USER
-        dia_=$(date +"%d%m%y")
+        dia_=$(date +"%d/%m/%y")
         touch $usuario.txt
-        echo "$dia_ - Usuário: $usuario obteve acesso negado\n" >> $usuario.txt
+        echo -e "$dia_ - Usuário '$usuario' obteve acesso negado\n" >> $usuario.txt
       else
         exit 0
       fi
