@@ -59,7 +59,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
     #du -a $opcao_dir | sort -n -r | head -n 10 #antigo
     case "$opcao_menu" in
           1) echo -e "" ; ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
-          2) echo -e "${CYANO}Info:${FIM} " $(id) ;;
+          2) echo -e "\n${CYANO}Info:${FIM} " $(id) ;;
           3) read -rp "Diretório: " opcao_dir ; echo -e "\n${AMARELO}Tamanho | Arquivo\n   V         V${FIM}" ; du $opcao_dir -aBM | sort -nr | head -n 10 | more ;;
           4) echo -e "" ; ps ;;
           0) echo -e "${VERMELHO}Finalizando...${FIM}" ; exit 0 ;;
@@ -79,7 +79,8 @@ else
         "
         usuario=$USER
         dia_=$(date +"%d%m%y")
-        touch $usuario.txt | echo "$dia_ - Usuário: $usuario obteve acesso negado\n" >> $usuario.txt
+        touch $usuario.txt
+        echo "$dia_ - Usuário: $usuario obteve acesso negado\n" >> $usuario.txt
       else
         exit 0
       fi
