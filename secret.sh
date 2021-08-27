@@ -54,6 +54,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
  2 ID do Usuário\n\t\
  3 Maior arquivo\n\t\
  4 Processos em execução\n\t\
+ 5 Data e hora\n\t\
  0 Sair da aplicação${FIM}"
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
     #du -a $opcao_dir | sort -n -r | head -n 10 #antigo
@@ -62,6 +63,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
           2) echo -e "\n${CYANO}Info:${FIM} " $(id) ;;
           3) read -rp "Diretório: " opcao_dir ; echo -e "\n${AMARELO}Tamanho | Arquivo\n   V         V${FIM}" ; du $opcao_dir -aBM | sort -nr | head -n 10 | more ;;
           4) echo -e "" ; ps ;;
+          5) echo -e "${CYANO}\n$(date +"%d/%m/%y | %T")${FIM}" ;;
           0) echo -e "${VERMELHO}Finalizando...${FIM}" ; exit 0 ;;
     esac
     echo -e "\n<==================================>\n"
@@ -77,7 +79,6 @@ else
         echo -e "\tUsuário não autorizado\n\
         esse ato será reportado!\n
         "
-        # Concertar! o debian não está criando o arquivo de report, só o gitbash
         usuario=$USER
         dia_=$(date +"%d/%m/%y | %T")
         touch $usuario.txt | echo -e "$dia_ - Usuário '$usuario' obteve acesso negado\n" >> $usuario.txt
