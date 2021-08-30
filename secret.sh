@@ -6,9 +6,14 @@
 # Exportando o arquivo 'cores.sh'
 #source "./cores.sh"
 
+export LANG=C.UTF-8
+
 : << 'FIM'
 Deixar com que apenas usuários permitidos possam ler
 e modificar o arquivo, para a senha não ser exibida
+
+Para fazer: criar um pompem da vida e inserir ele nesse programa! yay :(
+
 FIM
 
 VERMELHO='\033[31;1m' # '\033[31m' = Vermelho ';' concatena o Vermelho com o '\033[1m' é Negrito
@@ -34,7 +39,7 @@ _Ajuda_(){
 }
 
 uninstall_1(){
-  local enter_return=$2
+  #local enter_return=$2
   echo -e "Você deseja desinstalar o programa?\n"
   read -rp "Sim[y] Não[N]: " resposta_1
   case "$resposta_1" in
