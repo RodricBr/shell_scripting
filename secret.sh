@@ -74,7 +74,8 @@ if [[ "$senha" == "r0dricbr" ]]; then
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
     case "$opcao_menu" in
           1) echo -e "" ;
-              ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
+              ls -la --color ;
+              echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
           2) echo -e "\n${CYANO}Info:${FIM} " $(id) ;;
           3) read -rp "Diretório: " opcao_dir ;
               echo -e "\n${AMARELO}Tamanho | Arquivo\n   V         V${FIM}" ;
@@ -116,4 +117,3 @@ fi
 
 # Informação de CPU
 # $ cat /proc/cpuinfo
-
