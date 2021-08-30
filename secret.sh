@@ -73,10 +73,14 @@ if [[ "$senha" == "r0dricbr" ]]; then
   0 Sair da aplicação${FIM}"
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
     case "$opcao_menu" in
-          1) echo -e "" ; ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
+          1) echo -e "" ;
+              ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
           2) echo -e "\n${CYANO}Info:${FIM} " $(id) ;;
-          3) read -rp "Diretório: " opcao_dir ; echo -e "\n${AMARELO}Tamanho | Arquivo\n   V         V${FIM}" ; du $opcao_dir -aBM | sort -nr | head -n 10 | more ;;
-          4) echo -e "" ; ps ;;
+          3) read -rp "Diretório: " opcao_dir ;
+              echo -e "\n${AMARELO}Tamanho | Arquivo\n   V         V${FIM}" ;
+              du $opcao_dir -aBM | sort -nr | head -n 10 | more ;;
+          4) echo -e "" ;
+              ps ;;
           5) echo -e "${CYANO}\n$(date +"%d/%m/%y | %T")${FIM}" ;;
           0) echo -e "${VERMELHO}Finalizando...${FIM}" ;
               exit 0 ;;
@@ -112,3 +116,4 @@ fi
 
 # Informação de CPU
 # $ cat /proc/cpuinfo
+
