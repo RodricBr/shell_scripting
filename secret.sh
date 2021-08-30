@@ -20,23 +20,38 @@ FIM='\033[m'          # Reseta a cor
 
 senha=$1
 ajuda=$1
-versao='1.0'
+versao='1.2'
 
 _Ajuda_(){
     echo -e "
     Modo de uso:\n \
     \t$0 <senha>\n\n \
     Comandos:\n \
-    \t-h | --help    : Painel de ajuda\n \
-    \t-v | --version : Versão do programa
+    \t-h | --help      : Painel de ajuda\n \
+    \t-v | --version   : Versão do programa\n \
+    \t-u | --uninstall : Desinstalar programa \
     "
 }
 
+uninstall_1(){
+  local enter_return=$2
+  echo -e "Você deseja desinstalar o programa?\n"
+  read -rp "Sim[y] Não[N]: " resposta_1
+  case "$resposta_1" in
+      Y|y)  echo -e "Desinstalando..." ; sleep 3 ; rm -f $0 ;;
+      N|n)  exit 0 ;;
+      '\n') exit 0 ;; #[[ $enter_return ]] && return "$enter_return"
+  esac
+}
+
 case $ajuda in
-    "-h"|"--help") _Ajuda_
+    "-h"|"--help") _Ajuda_ ;
         exit 0
     ;;
-    "-v"|"--versao") echo -e "\nVersão: $versao"
+    "-v"|"--versao") echo -e "\nVersão: $versao" ;
+        exit 0
+    ;;
+    "-u"|"--uninstall") uninstall_1 ;
         exit 0
     ;;
 esac
@@ -50,21 +65,21 @@ if [[ "$senha" == "r0dricbr" ]]; then
     echo -e "\n<============== ${AZUL}M${VERDE}e${AMARELO}n${CYANO}u${FIM} ==============>"
     echo -e "\n\t${VERMELHO}\
  [!] Menu de Opções:${FIM}\n\t\
- ${AZUL}1 Diretório Atual\n\t\
- 2 ID do Usuário\n\t\
- 3 Maior arquivo\n\t\
- 4 Processos em execução\n\t\
- 5 Data e hora\n\t\
- 0 Sair da aplicação${FIM}"
+ ${AZUL} 1 Diretório Atual\n\t\
+  2 ID do Usuário\n\t\
+  3 Maior arquivo\n\t\
+  4 Processos em execução\n\t\
+  5 Data e hora\n\t\
+  0 Sair da aplicação${FIM}"
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
-    #du -a $opcao_dir | sort -n -r | head -n 10 #antigo
     case "$opcao_menu" in
           1) echo -e "" ; ls -la --color ; echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
           2) echo -e "\n${CYANO}Info:${FIM} " $(id) ;;
           3) read -rp "Diretório: " opcao_dir ; echo -e "\n${AMARELO}Tamanho | Arquivo\n   V         V${FIM}" ; du $opcao_dir -aBM | sort -nr | head -n 10 | more ;;
           4) echo -e "" ; ps ;;
           5) echo -e "${CYANO}\n$(date +"%d/%m/%y | %T")${FIM}" ;;
-          0) echo -e "${VERMELHO}Finalizando...${FIM}" ; exit 0 ;;
+          0) echo -e "${VERMELHO}Finalizando...${FIM}" ;
+              exit 0 ;;
     esac
     echo -e "\n<==================================>\n"
   done
@@ -80,7 +95,7 @@ else
         esse ato será reportado!\n"
         usuario=$USER
         dia_=$(date +"%d/%m/%y | %T")
-        touch $usuario.txt | echo -e "$dia_ - Usuário '$usuario' obteve acesso negado\n" >> $usuario.txt
+        touch $usuario.txt | echo -e "$dia_ - Usuário '$usuario' obteve acesso negado\nComando: $0 $@\n" >> $usuario.txt
       else
         exit 0
       fi
@@ -88,3 +103,12 @@ else
     fi
   fi
 fi
+
+# Visualizar dispositivos PCI (Informações sobre barramento de hardware):
+# $ lspci
+# $ echo -e "Controlador de placa de rede: " && lspci | grep -e Ethernet
+# Detalhes específicos:
+# $ lspci -s 00:03.0 -v ### 00:03.0 é a linha do código de informações lspci
+
+# Informação de CPU
+# $ cat /proc/cpuinfo
