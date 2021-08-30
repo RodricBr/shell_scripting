@@ -6,6 +6,6 @@
 - Shell scripting notes
 
 #### Como executar secret.sh
-1- wget https://github.com/RodricBr/shell_scripting/blob/main/secret.sh
-2- chmod +x secret.sh
-3- ./secret.sh <-h|--help # -v|--version # -u|--uninstall # r0dricbr>
+1- wget https://github.com/RodricBr/shell_scripting/blob/main/secret.sh <br>
+2- chmod +x secret.sh <br>
+3- ./secret.sh <-h|--help # -v|--version # -u|--uninstall # r0dricbr> <br>
