@@ -64,7 +64,7 @@ _hex_(){
   index=1
   read -rp "$(echo -e $CYANO"Hex: "$FIM)" opcao_hex
   for arg in $opcao_hex; do
-    echo -n $opcao_hex | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/gI' | xargs printf
+    echo -n $arg | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/gI' | xargs printf
     let "index+=1"
   done
 }
@@ -87,7 +87,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
   0 Sair da aplicação${FIM}"
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
     case "$opcao_menu" in
-          1) echo -e "" ;
+          1) echo "" ;
               ls -la --color ;
               echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
           2) echo -e "\n${CYANO}Info:${FIM} " $(id) ;;
