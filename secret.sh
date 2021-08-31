@@ -62,7 +62,7 @@ esac
 
 _hex_(){
   index=1
-  read -rp "Hex: " opcao_hex
+  read -rp "$(echo -e $CYANO"Hex: "$FIM)" opcao_hex
   for arg in $opcao_hex; do
     echo -n $opcao_hex | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/gI' | xargs printf
     let "index+=1"
