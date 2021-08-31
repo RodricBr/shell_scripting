@@ -3,16 +3,15 @@
 # Deixar com que o arquivo apenas possa ser lido/escrito por sudoers
 # senão a senha fica exposta
 
-# Exportando o arquivo 'cores.sh'
-#source "./cores.sh"
-
-export LANG=C.UTF-8
+# Exportando o arquivo 'hextotex.sh'
+#source "./hextotex.sh"
 
 : << 'FIM'
 Deixar com que apenas usuários permitidos possam ler
 e modificar o arquivo, para a senha não ser exibida
 
 Para fazer: criar um pompem da vida e inserir ele nesse programa! yay :(
+echo -e "\x72\x30\x64\x72\x69\x63\x62\x72" # Ofuscar a senha com hex
 
 FIM
 
@@ -61,6 +60,15 @@ case $ajuda in
     ;;
 esac
 
+_hex_(){
+  index=1
+  read -rp "Hex: " opcao_hex
+  for arg in $opcao_hex; do
+    echo -n $opcao_hex | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/gI' | xargs printf
+    let "index+=1"
+  done
+}
+
 if [[ "$senha" == "r0dricbr" ]]; then
   echo -e "\n\t${VERDE}Sucesso!${FIM}\n"
   echo -e "\t${AMARELO}[V] Inicializando programa...${FIM}"
@@ -75,6 +83,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
   3 Maior arquivo\n\t\
   4 Processos em execução\n\t\
   5 Data e hora\n\t\
+  6 Hex2Text\n\t\
   0 Sair da aplicação${FIM}"
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
     case "$opcao_menu" in
@@ -88,6 +97,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
           4) echo -e "" ;
               ps ;;
           5) echo -e "${CYANO}\n$(date +"%d/%m/%y | %T")${FIM}" ;;
+          6) _hex_ ;;
           0) echo -e "${VERMELHO}Finalizando...${FIM}" ;
               exit 0 ;;
     esac
@@ -109,7 +119,6 @@ else
       else
         exit 0
       fi
-      #exit 0
     fi
   fi
 fi
