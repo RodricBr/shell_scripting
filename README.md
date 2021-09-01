@@ -5,9 +5,9 @@
 - Beginner to Advanced
 - Shell scripting notes
 ```
-```markdown
+
 # Como executar secret.sh (Testado no [GitBash](https://git-scm.com/downloads) e Debian 10 Buster)
 1- `wget https://github.com/RodricBr/shell_scripting/blob/main/secret.sh` <br>
 2- `chmod +x secret.sh` <br>
 3- `./secret.sh -h | --help` <br>
-```
+
