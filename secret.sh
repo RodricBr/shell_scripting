@@ -69,6 +69,15 @@ _hex_(){
   done
 }
 
+binario_(){
+  read -rp "$(echo -e $CYANO"Valor: "$FIM)" lendo_
+
+  for arg in $lendo_; do
+    perl -e 'printf "%b\n",'$arg
+    #let "index+=1"
+  done
+}
+
 if [[ "$senha" == "r0dricbr" ]]; then
   echo -e "\n\t${VERDE}Sucesso!${FIM}\n"
   echo -e "\t${AMARELO}[V] Inicializando programa...${FIM}"
@@ -84,6 +93,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
   4 Processos em execução\n\t\
   5 Data e hora\n\t\
   6 Hex2Text\n\t\
+  7 Tradutor Binario\n\t\
   0 Sair da aplicação${FIM}"
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
     case "$opcao_menu" in
@@ -97,7 +107,10 @@ if [[ "$senha" == "r0dricbr" ]]; then
           4) echo -e "" ;
               ps ;;
           5) echo -e "${CYANO}\n$(date +"%d/%m/%y | %T")${FIM}" ;;
-          6) _hex_ ;;
+          6) echo -e "${VERDE}\nComo usar:\nHex: 72 73 74${FIM}\n" ;
+              _hex_ ;;
+          7) echo -e "${VERDE}\nComo usar:\nValor: 255 254 253 251${FIM}\n" ;
+              binario_ ;;
           0) echo -e "${VERMELHO}Finalizando...${FIM}" ;
               exit 0 ;;
     esac
