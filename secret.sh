@@ -24,7 +24,7 @@ FIM='\033[m'          # Reseta a cor
 
 senha=$1
 ajuda=$1
-versao='1.2'
+versao='1.5'
 
 _Ajuda_(){
     echo -e "
@@ -42,22 +42,26 @@ uninstall_1(){
   echo -e "Você deseja desinstalar o programa?\n"
   read -rp "Sim[y] Não[N]: " resposta_1
   case "$resposta_1" in
-      Y|y)  echo -e "Desinstalando..." ; sleep 3 ; rm -f $0 ;;
-      N|n)  exit 0 ;;
-      '\n') exit 0 ;; #[[ $enter_return ]] && return "$enter_return"
+    Y|y)  echo -e "Desinstalando..." ;
+      sleep 3 ;
+      rm -f $0 && rm -rf ~/secret ;
+      cd .. ;
+      exit 0 ;;
+    N|n)  exit 0 ;;
+    '\n') exit 0 ;; #[[ $enter_return ]] && return "$enter_return"
   esac
 }
 
 case $ajuda in
-    "-h"|"--help") _Ajuda_ ;
-        exit 0
-    ;;
-    "-v"|"--versao") echo -e "\nVersão: $versao" ;
-        exit 0
-    ;;
-    "-u"|"--uninstall") uninstall_1 ;
-        exit 0
-    ;;
+  "-h"|"--help") _Ajuda_ ;
+      exit 0
+  ;;
+  "-v"|"--versao") echo -e "\nVersão: $versao" ;
+      exit 0
+  ;;
+  "-u"|"--uninstall") uninstall_1 ;
+      exit 0
+  ;;
 esac
 
 _hex_(){
@@ -97,28 +101,29 @@ if [[ "$senha" == "r0dricbr" ]]; then
   0 Sair da aplicação${FIM}"
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
     case "$opcao_menu" in
-          1) echo "" ;
-              ls -la --color ;
-              echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
-          2) echo -e "\n${CYANO}Info:${FIM} " $(id) ;;
-          3) read -rp "Diretório: " opcao_dir ;
-              echo -e "\n${AMARELO}Tamanho | Arquivo\n   V         V${FIM}" ;
-              du $opcao_dir -aBM | sort -nr | head -n 10 | more ;;
-          4) echo -e "" ;
-              ps ;;
-          5) echo -e "${CYANO}\n$(date +"%d/%m/%y | %T")${FIM}" ;;
-          6) echo -e "${VERDE}\nComo usar:\nHex: 72 73 74${FIM}\n" ;
-              _hex_ ;;
-          7) echo -e "${VERDE}\nComo usar:\nValor: 255 254 253 251${FIM}\n" ;
-              binario_ ;;
-          0) echo -e "${VERMELHO}Finalizando...${FIM}" ;
-              exit 0 ;;
+      1) echo "" ;
+          ls -la --color ;
+          echo -e "\n${CYANO}Caminho:${FIM} " $(pwd) ;;
+      2) echo -e "\n${CYANO}Info:${FIM} " $(id) ;;
+      3) read -rp "Diretório: " opcao_dir ;
+          echo -e "\n${AMARELO}Tamanho | Arquivo\n   V         V${FIM}" ;
+          du $opcao_dir -aBM | sort -nr | head -n 10 | more ;;
+      4) echo -e "" ;
+          ps ;;
+      5) echo -e "${CYANO}\n$(date +"%d/%m/%y | %T")${FIM}" ;;
+      6) echo -e "${VERDE}\nComo usar:\nHex: 72 73 74${FIM}\n" ;
+          _hex_ ;;
+      7) echo -e "${VERDE}\nComo usar:\nValor: 255 254 253 251${FIM}\n" ;
+          binario_ ;;
+      0) echo -e "${VERMELHO}Finalizando...${FIM}" ;
+          exit 0 ;
+          ;;
     esac
     echo -e "\n<==================================>\n"
   done
 else
   if [[ -z "$senha" ]]; then
-    echo -e "\n\t${RED}Nenhuma senha inserida${FIM}\n"
+    echo -e "\n\t${RED}Nenhuma senha/argumento inserido${FIM}\n"
     exit 0
   else
     if [[ "$senha" != "r0dricbr" ]]; then
