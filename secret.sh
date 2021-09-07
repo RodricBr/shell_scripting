@@ -27,14 +27,23 @@ ajuda=$1
 versao='1.5'
 
 _Ajuda_(){
-    echo -e "
-    Modo de uso:\n \
-    \t$0 <senha>\n\n \
-    Comandos:\n \
-    \t-h | --help      : Painel de ajuda\n \
-    \t-v | --version   : Versão do programa\n \
-    \t-u | --uninstall : Desinstalar programa \
-    "
+  echo -e "
+  Modo de uso:\n \
+  \t$0 <senha>\n\n \
+  Comandos:\n \
+  \t-h | --help      : Painel de ajuda\n \
+  \t-v | --version   : Versão do programa\n \
+  \t-u | --uninstall : Desinstalar programa \
+  "
+}
+
+credito_(){
+  echo -e "
+  Criado por: RodricBr via GitHub\n\
+  Github: github.com/RodricBr
+  Data: 06/09/2021
+  "
+  exit 0
 }
 
 uninstall_1(){
@@ -61,6 +70,7 @@ case $ajuda in
   "-u"|"--uninstall") uninstall_1 ;
       exit 0
   ;;
+  "-c"|"--credito") credito_ ;;
 esac
 
 _hex_(){
