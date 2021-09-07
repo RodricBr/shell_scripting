@@ -33,7 +33,8 @@ _Ajuda_(){
   Comandos:\n \
   \t-h | --help      : Painel de ajuda\n \
   \t-v | --version   : Versão do programa\n \
-  \t-u | --uninstall : Desinstalar programa \
+  \t-u | --uninstall : Desinstalar programa\n \
+  \t-c | --credito   : Créditos \
   "
 }
 
@@ -41,7 +42,7 @@ credito_(){
   echo -e "
   Criado por: RodricBr via GitHub\n\
   Github: github.com/RodricBr
-  Data: 06/09/2021
+  Data: 06/09/2021 \
   "
   exit 0
 }
@@ -132,7 +133,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
   done
 else
   if [[ -z "$senha" ]]; then
-    echo -e "\n\t${RED}Nenhuma senha/argumento inserido${FIM}\n"
+    echo -e "\n\t${RED}Nenhuma senha/argumento inserido${FIM}"
     _Ajuda_
     exit 0
   else
