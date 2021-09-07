@@ -123,6 +123,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
 else
   if [[ -z "$senha" ]]; then
     echo -e "\n\t${RED}Nenhuma senha/argumento inserido${FIM}\n"
+    _Ajuda_
     exit 0
   else
     if [[ "$senha" != "r0dricbr" ]]; then
