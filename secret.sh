@@ -126,8 +126,7 @@ if [[ "$senha" == "r0dricbr" ]]; then
       7) echo -e "${VERDE}\nComo usar:\nValor: 255 254 253 251${FIM}\n" ;
           binario_ ;;
       0) echo -e "${VERMELHO}Finalizando...${FIM}" ;
-          exit 0 ;
-          ;;
+          exit 0 ;;
     esac
     echo -e "\n<==================================>\n"
   done
