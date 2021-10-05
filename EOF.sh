@@ -6,7 +6,7 @@
 >
 >int main(int argc, char *argv[])
 >{
->  printf("Hello, world!");
+>  printf("Ola, mundo!\n");
 >  return 0;
 >}
 >EOF
