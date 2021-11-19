@@ -9,6 +9,7 @@ read -n 1 -p "SIM OU NÃO? [Y/n]: " RESP;
 #fi
 
 ## Opção 2
+# Só pega o que está no alfabeto (letras)
 case $RESP in
   *[![:alpha:]]*) echo -e "\n$RESP não é uma resposta válida!" ;
     exit 1 ;;
