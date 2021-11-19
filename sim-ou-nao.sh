@@ -2,10 +2,23 @@
 
 read -n 1 -p "SIM OU NÃO? [Y/n]: " RESP;
 
-[ "$RESP" != "" ] && echo "";
+## Opção 1
+#if [[ "$RESP" =~ ^[0-9]$ ]]; then
+#  echo -e "\n$RESP não é uma resposta válida"
+#  exit 1
+#fi
+
+## Opção 2
+case $RESP in
+  *[![:alpha:]]*) echo -e "\n$RESP não é uma resposta válida!" ;
+    exit 1 ;;
+esac
+
+[[ "$RESP" != "" ]] && echo "";
 
 if [ "$RESP" = "${RESP#[Nn]}" ]; then
   echo -e "SIM"
 elif [ "$RESP" = "${RESP#^[Yy]$}" ]; then
   echo -e "NAO"
 fi
+
