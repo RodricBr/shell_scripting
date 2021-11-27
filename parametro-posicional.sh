@@ -8,7 +8,7 @@
 # Variáveis de Cor
 # ================
 
-RED='\033[31;1m' # \033[31m = Vermelho ';' concatena o Vermelho com o \033[1m é Negrito
+RED='\033[31;1m' # \033[31m = Vermelho ';' concatena o Vermelho com o \033[1m que é Negrito
 GREEN='\033[32;1m' # \033[32m = Verde
 BLUE='\033[34;1m' # \033[34m = Azul
 YELLOW='\033[33;1m' # \033[33 = Amarelo
