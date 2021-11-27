@@ -50,6 +50,7 @@ done
 printf "\n\t${GREEN}Lista inteira de argumentos vista como uma única palavra${END}\n"
 echo -e "\n#---------------------------------------------------------------#\n"
 
+# Reseta o contador
 index=1
 
 printf "\t${YELLOW}Listando os args usando:${END} \"\$@\":\n"
