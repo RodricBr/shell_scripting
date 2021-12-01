@@ -35,3 +35,15 @@ echo -e "\033[33;3;5mRodricBr\033[0m"
 #             |  | Piscar
 #             |  |
 #            Cor Itálico
+
+# Negrito piscando
+echo -e "\033[33;2;5mRodricBr\033[0m"
+
+# Underline piscando
+echo -e "\033[33;4;5mRodricBr\033[0m"
+
+# Background fixo e texto piscando
+echo -e "\033[33;7;5mRodricBr\033[0m"
+
+# Riscado piscando
+echo -e "\033[33;9;5mRodricBr\033[0m"
