@@ -6,7 +6,7 @@
 # Ex: ./programa.sh -h/--help [Exibe a função '_Ajuda_']
 # Ex: ./programa.sh -v/--version [Exibe a variável 'versao']
 
-argumento1=$1
+argumento1="$1"
 versao='1.0'
 
 _Ajuda_(){
