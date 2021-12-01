@@ -48,6 +48,9 @@ echo -e "\033[33;7;5mRodricBr\033[0m"
 # Riscado piscando
 echo -e "\033[33;9;5mRodricBr\033[0m"
 
+#### KDE-Konsole suporta o 5; mas o Gnome-Terminal não suporta
+#### Dependendo do tipo de sistema, ele vai ser diferente!
+
 # 3; Itálico
 # 4; Sublinhado
 # 5; Piscando (devagar)
