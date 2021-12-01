@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
-# Texto com cor que fica piscando
+#### Texto com cor que fica piscando
+#### Testado no bash 5.0.3 do Debian 10 buster 4.19.0-18-amd64
 
 # Branco
 echo -e "\033[37;5mRodricBr\033[0m"
