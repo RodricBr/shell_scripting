@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 ### 27/07/2021
+# github.com/rodricbr
 
 ## Executando comandos dentro do VIM ##
 # Dentro do modo de comando(ESC)
