@@ -27,11 +27,11 @@ echo -e "\033[31;5mRodricBr\033[0m"
 echo -e "\033[30;5mRodricBr\033[0m"
 
 
-#### Diferenciados
+#### Diferenciados + Explicação
 #                    Texto        Resetar cores
 # Itálico piscando   VVVVVVVV     V
 echo -e "\033[33;3;5mRodricBr\033[0m"
-              ^^ ^ ^
-              |  | Piscar
-              |  |
-             Cor Itálico
+#             ^^ ^ ^
+#             |  | Piscar
+#             |  |
+#            Cor Itálico
