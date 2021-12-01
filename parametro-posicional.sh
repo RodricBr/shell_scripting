@@ -4,9 +4,9 @@
 # Criado 27/07/2021 #
 # ================= #
 
-# ================
-# Variáveis de Cor
-# ================
+# ================ #
+# Variáveis de Cor #
+# ================ #
 
 RED='\033[31;1m' # \033[31m = Vermelho ';' concatena o Vermelho com o \033[1m que é Negrito
 GREEN='\033[32;1m' # \033[32m = Verde
