@@ -47,3 +47,11 @@ echo -e "\033[33;7;5mRodricBr\033[0m"
 
 # Riscado piscando
 echo -e "\033[33;9;5mRodricBr\033[0m"
+
+# 3; Itálico
+# 4; Sublinhado
+# 5; Piscando (devagar)
+# 6; Piscando (rápido)
+# 7; Background/Reverso
+# 8; Escondido
+# 9; Riscado
