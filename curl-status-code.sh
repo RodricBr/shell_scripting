@@ -14,5 +14,5 @@ while IFS= read -r line; do
   if [[ "$RESP" == "000" ]]; then
     continue
   fi
-  printf '%s ' "$line" "$RESP"; echo -e ""
+  printf '%s ' "$line" "[$RESP]"; echo -e ""
 done <"$file"
