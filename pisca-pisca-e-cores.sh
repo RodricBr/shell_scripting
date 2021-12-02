@@ -59,3 +59,7 @@ echo -e "\033[33;9;5mRodricBr\033[0m"
 # 7; Background/Reverso
 # 8; Escondido
 # 9; Riscado
+
+# Para mais informações com mais detalhes:
+# https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
+# Use: ctrl + F para procurar a parte "some variables"
