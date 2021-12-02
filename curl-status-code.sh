@@ -2,6 +2,8 @@
 
 # Extrair status code de um determinado arquivo contendo URLs usando o curl APENAS!!
 
+# O leitor de status code do ceifador é mais rápido e preciso doq esse
+
 # Diretório contendo o arquivo:
 file="/home/rodric/Desktop/ceifador/url.txt"
 
