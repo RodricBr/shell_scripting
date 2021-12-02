@@ -7,7 +7,7 @@
 # Diretório contendo o arquivo:
 file="/home/rodric/Desktop/ceifador/url.txt"
 
-# Pegando uma lista de user-agents e randomizando (evitar 403 ou bugs)
+# Pegando uma lista de user-agents e randomizando (evitar 403 ou bugs && +3 segundos rodando o programa)
 NUMBER=$(( $RANDOM % 9 ))
 AGENTS=(
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/37.0.2062.94 Chrome/37.0.2062.94 Safari/537.36"
