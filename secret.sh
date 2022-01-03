@@ -10,7 +10,7 @@
 Deixar com que apenas usuários permitidos possam ler
 e modificar o arquivo, para a senha não ser exibida
 
-Para fazer: criar um pompem da vida e inserir ele nesse programa! yay :(
+Para fazer: criar um pompem da vida e inserir ele nesse programa! yay ;(
 echo -e "\x72\x30\x64\x72\x69\x63\x62\x72" # Ofuscar a senha com hex
 
 FIM
@@ -24,7 +24,14 @@ FIM='\033[m'          # Reseta a cor
 
 senha=$1
 ajuda=$1
-versao='1.5'
+versao='2.0'
+
+trap encerr 2
+
+encerr(){
+  echo -e "\n\n${AMARELO}Processo interrompido\nSaíndo!${FIM}\n"
+  exit 130
+}
 
 _Ajuda_(){
   echo -e "
@@ -75,12 +82,19 @@ case $ajuda in
 esac
 
 _hex_(){
-  index=1
-  read -rp "$(echo -e $CYANO"Hex: "$FIM)" opcao_hex
-  for arg in $opcao_hex; do
-    echo -n $arg | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/gI' | xargs printf
-    let "index+=1"
-  done
+  if [[ -z "$*" ]]; then
+    read -rp "Digite um número hex: " opcao_hex2
+    echo -ne "O valor decimal do ${opcao_hex2} é: "
+    echo "obase=10; ibase=16; ${opcao_hex2}" | bc
+    if [[ ! -z $(command -v bc 2>/dev/null) ]]; then
+      echo -e "${VERMELHO}Erro:${FIM} bc não encontrado no seu sistema!\n\
+      Favor instale para poder usar esta opção."
+      exit 1
+    fi
+  else
+    echo -n "O valor decimal do $* é: "
+    echo "ibase=16; $*" | bc
+  fi
 }
 
 binario_(){
@@ -90,6 +104,17 @@ binario_(){
     perl -e 'printf "%b\n",'$arg
     #let "index+=1"
   done
+}
+
+lspci_(){
+  if [[ -z $(command -v lspci 2>/dev/null) ]]; then
+    echo -e "${VERMELHO}Erro:${FIM} lspci não encontrado no seu sistema!\n\
+    Favor instale para poder usar esta opção."
+    exit 1
+  else
+    respo=$(lspci | grep -e Ethernet | awk '{print $1}')
+    lspci -s $respo -v
+  fi
 }
 
 if [[ "$senha" == "r0dricbr" ]]; then
@@ -108,6 +133,8 @@ if [[ "$senha" == "r0dricbr" ]]; then
   5 Data e hora\n\t\
   6 Hex2Text\n\t\
   7 Tradutor Binario\n\t\
+  8 Informações do Sistema\n\t\
+  9 Informações de Rede\n\t\
   0 Sair da aplicação${FIM}"
     read -rp "Sua escolha: " opcao_menu #-r para evitar quebrar/bugar o código
     case "$opcao_menu" in
@@ -125,28 +152,31 @@ if [[ "$senha" == "r0dricbr" ]]; then
           _hex_ ;;
       7) echo -e "${VERDE}\nComo usar:\nValor: 255 254 253 251${FIM}\n" ;
           binario_ ;;
-      0) echo -e "${VERMELHO}Finalizando...${FIM}" ;
+      8) echo -e "${VERDE}\nInformações do sistema:${FIM}\n\n" ;
+          cat /proc/cpuinfo ; echo -e "\n${VERDE}Informações de memória:${FIM}\n\n" && cat /proc/meminfo ;
+          exit 0 ;;
+      9) echo -e "${VERDE}\nInformações de rede:${FIM}\n\n" ;
+          lspci_ ;;
+      0) echo -e "${VERMELHO}\nFinalizando...${FIM}" ;
           exit 0 ;;
     esac
     echo -e "\n<==================================>\n"
   done
 else
-  if [[ -z "$senha" ]]; then
+  if [[ -z "$@" ]]; then
     echo -e "\n\t${RED}Nenhuma senha/argumento inserido${FIM}"
     _Ajuda_
     exit 0
   else
     if [[ "$senha" != "r0dricbr" ]]; then
       echo -e "\n\t${RED}Senha errada!${FIM}\n"
-      if [[ "$senha" != "r0dricbr" ]]; then
-        echo -e "\tUsuário não autorizado\n\
-        esse ato será reportado!\n"
-        usuario=$USER
-        dia_=$(date +"%d/%m/%y | %T")
-        touch $usuario.txt | echo -e "$dia_ - Usuário '$usuario' obteve acesso negado\nComando: $0 $@\n" >> $usuario.txt
-      else
-        exit 0
-      fi
+      echo -e "\tUsuário não autorizado\n  \
+      esse ato será reportado!\n"
+      usuario=$USER
+      dia_=$(date +"%d/%m/%y | %T")
+      touch $usuario.txt | echo -e "$dia_ - Usuário '$usuario' obteve acesso negado\nComando: $0 $@\n" >> $usuario.txt
+    else
+      exit 0
     fi
   fi
 fi
@@ -156,6 +186,3 @@ fi
 # $ echo -e "Controlador de placa de rede: " && lspci | grep -e Ethernet
 # Detalhes específicos:
 # $ lspci -s 00:03.0 -v ### 00:03.0 é a linha do código de informações lspci
-
-# Informação de CPU
-# $ cat /proc/cpuinfo
