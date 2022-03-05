@@ -3,6 +3,11 @@
 #### Texto com cor que fica piscando
 #### Funciona apenas para xterm
 
+# Especificações de texto com cor no BASH:  \e[<ESTILO>;<COR>m
+# (Nota: \e = \033 (oct) = \x1b (hex) = 27 (dec) = "Escape")
+# Estilos:  0=normal, 1=negrito, 2=escurecido, 4=sublinhado, 5=piscando(xterm), 7=destacado
+# Cores: 31=red, 32=green, 33=yellow, 34=blue, 35=purple, 36=cyan, 37=white
+
 # Branco
 echo -e "\033[37;5mRodricBr\033[0m"
 
