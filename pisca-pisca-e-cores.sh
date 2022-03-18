@@ -4,7 +4,7 @@
 #### Funciona apenas para xterm
 
 # Especificações de texto com cor no BASH:  \e[<ESTILO>;<COR>m
-# (Nota: \e == BASH || \033 == OCT || \x1b == HEX )
+# (Nota: \e == BASH || \033 == OCT || \x1b == HEX || 27 DEC )
 # Estilos:  0=normal, 1=negrito, 2=escurecido, 4=sublinhado, 5=piscando(xterm), 7=destacado
 # Cores: 31=red, 32=green, 33=yellow, 34=blue, 35=purple, 36=cyan, 37=white
 
