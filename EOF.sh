@@ -1,4 +1,6 @@
 # Edição de texto interface de terminal usando eof (end of file)
+# Também chamado de "heredoc"
+# https://linuxize.com/post/bash-heredoc/
 
 ~$ cat > exemplo.txt << EOF
 >#include <stdio.h>
