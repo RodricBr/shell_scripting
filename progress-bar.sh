@@ -4,8 +4,8 @@
 # De: TLDP.org
 
 BAR_WIDTH=50
-BAR_CHAR_START="["
-BAR_CHAR_END="]"
+#BAR_CHAR_START="["
+#BAR_CHAR_END="]"
 BAR_CHAR_EMPTY="▒"
 BAR_CHAR_FULL="█"
 BRACKET_CHARS=2
@@ -38,7 +38,7 @@ for ((i=0; i<=MAX_PERCENT; i++)); do
   TEMPO="$1"
   sleep "$TEMPO" 2>/dev/null
   print_progress_bar ${BAR_WIDTH} ${i}
-  echo -en "\r"
+  echo -en "\r" # A magia acontece aqui, impedindo quebra de linha
 done
 
 exit
