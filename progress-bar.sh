@@ -32,10 +32,12 @@ print_progress_bar(){
   printf "%3d%% %s" $2 ${bar_line}
 }
 
+TEMPO="$1"
+echo -e "Tempo $TEMPO s"
+
 # Here is a sample of code that uses it
 MAX_PERCENT=100
 for ((i=0; i<=MAX_PERCENT; i++)); do
-  TEMPO="$1"
   sleep "$TEMPO" 2>/dev/null
   print_progress_bar ${BAR_WIDTH} ${i}
   echo -en "\r" # A magia acontece aqui, impedindo quebra de linha
