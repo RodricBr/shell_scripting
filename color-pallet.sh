@@ -7,8 +7,8 @@ AAA=$(printf "%124s"); echo ${AAA// /─}; for X in {0..255}; do printf "│\x1b
 # Identado bonitinho:
 
 # Repetição de strings:
-AAA=$(printf "%124s")
-echo ${AAA// /─}
+REPETI_=$(printf "%124s")
+echo ${REPETI_// /─}
 
 for X in {0..255}; do
   printf "│\x1b[38;5;${X}mcolor%-5i\x1b[0m│\t" $X
@@ -16,4 +16,7 @@ for X in {0..255}; do
     echo
   fi
 done
-echo ${AAA// /─}
+echo ${REPETI_// /─}
+
+# Ou simplesmente:
+#for X in {1..124}; do echo -n '─'; done
