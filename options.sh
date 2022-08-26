@@ -5,6 +5,7 @@
 opcoes=("teste0" "teste1" "teste2" "teste3" "sair")
 
 # Selecionando argumentos da variável "opcoes" guardado em uma lista(@) de string
+# A variável "$opt" contém as strings da variável "opcoes" no array
 select opt in "${opcoes[@]}"; do
   case $opt in
     "teste0") echo -e "\n\n\c"; echo -e "Primeira opção!" ;;
