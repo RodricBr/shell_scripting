@@ -1,2 +1,5 @@
-# Retorna a shell atual
+# Retorna a shell atual?
 eval echo \$$#
+
+# Mesma coisa?
+echo ${!#}
