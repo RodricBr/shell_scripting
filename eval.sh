@@ -1,4 +1,4 @@
-# Retorna a shell atual?
+# Retorna a shell atual? (https://www.youtube.com/watch?v=GP7Y94w3EZc)
 eval echo \$$#
 
 # Mesma coisa?
