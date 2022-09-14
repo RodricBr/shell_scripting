@@ -25,5 +25,5 @@ echo ${REPETI_// /─}
 # Printar todas as 256 cores do TPUT no terminal / Print all 256 tput colors in the terminal
 for X in {0..255}; do tput setaf $X; tput setaf $X | cat -v; echo =$X; done
 
-# De umaiie visible way:
+# De uma maneira mais visível / In a more visible way:
 for X in {0..255}; do tput setaf "$X"; tput setaf $X | cat -v; echo -e "=$X \r█ \t\t █"; done
