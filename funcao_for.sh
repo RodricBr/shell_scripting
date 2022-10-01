@@ -6,3 +6,5 @@ $ palavras Um Dois Tres
 Um
 Dois
 Tres
+
+# declare -f palavras
