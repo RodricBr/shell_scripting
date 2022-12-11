@@ -8,5 +8,9 @@ TERM=xterm-256color
 $ printf '\033[2J' # Limpa o terminal (CTRL + L) / Clears the terminal
 
 
-# PS: Ele não limpa o histórico, ele apenas limpa visualmente o terminal
+# OBS: Ele não limpa o histórico, ele apenas limpa visualmente o terminal
 #     It doesn't clear your history, it only clears visually your terminal
+
+
+$ dircolors --print-database
+$ echo $LS_COLORS | tr ':' '\n'
