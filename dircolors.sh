@@ -9,4 +9,8 @@ OU
 
 $ dircolors --print-database
 
+# Nossa distro provavelmente define o "LS_COLORS" globalmente, então todos os usuários em seu sistema herdam as mesmas cores.
+# Se quisermos um conjunto personalizado de cores, podemos usar o "dircolors".
 
+# Primeiro, gere uma cópia local das configurações de cores do dircolors:
+$ dircolors --print-database > ~/.dircolors
