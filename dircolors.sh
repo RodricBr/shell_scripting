@@ -25,5 +25,5 @@ $ source ~/.bashrc
 # Realisticamente, você provavelmente não mudará as cores com frequência, então isso pode ser muito agressivo,
 # mas é uma opção se você planeja mudar muito o esquema de cores.
 # No .bashrc, adicione esta regra:
-[[ -e $HOME/.dircolors ]] && eval "$(dircolors --sh $HOME/.dircolors)"
+[[ -e "$HOME"/.dircolors ]] && eval "$(dircolors --sh $HOME/.dircolors)"
 
