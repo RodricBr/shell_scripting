@@ -6,3 +6,7 @@ TERM=xterm-256color
 # Modern terminals have inherited ANSI escape sequences for "meta" features.
 # These are special sequences of characters that a terminal interprets as actions instead of characters.
 $ printf '\033[2J' # Limpa o terminal (CTRL + L) / Clears the terminal
+
+
+# PS: Ele não limpa o histórico, ele apenas limpa visualmente o terminal
+#     It doesn't clear your history, it only clears visually your terminal
