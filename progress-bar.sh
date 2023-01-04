@@ -44,3 +44,9 @@ for ((i=0; i<=MAX_PERCENT; i++)); do
 done
 
 exit
+
+#########################################################################
+# One liner simple version:
+
+for X_ in $(seq 1 100); do echo -ne "$X_%\033[0K\r"; sleep 1; done
+# \033[0K == Delete to the end of the line (in case your progress line gets shorter at some point)
