@@ -50,3 +50,4 @@ exit
 
 for X_ in $(seq 1 100); do echo -ne "$X_%\033[0K\r"; sleep 1; done
 # \033[0K == Delete to the end of the line (in case your progress line gets shorter at some point)
+# \033[K after the "\r" (\033[K works fine as well)
