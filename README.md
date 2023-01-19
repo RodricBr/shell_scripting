@@ -4,6 +4,7 @@
 - Bash 4,5...
 - Beginner to Advanced
 - Shell/Bash scripting notes & pro tips
+- Created: 2021/06/29
 ```
 
 I'll be adding .png's as well by now. <br>
