@@ -5,3 +5,6 @@
 - Beginner to Advanced
 - Shell/Bash scripting notes & pro tips
 ```
+
+I'll be adding .png's as well by now. <br>
+I'll keep creating .sh files with explanations on the commentaries, though.
