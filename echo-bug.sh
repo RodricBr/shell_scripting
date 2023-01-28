@@ -17,7 +17,7 @@ $ echo -en "-\x6e"
 $ echo -en "-\0156"
 -n
 
-# Also a simple way of avoiding this problem is by adding an empty character next to the string, like so:
+# Another simple way of avoiding this problem is by adding an empty character next to the string, like so:
 $ echo "-n "
 -n
 
