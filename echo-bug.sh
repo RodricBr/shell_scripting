@@ -17,6 +17,10 @@ $ echo -en "-\x6e"
 $ echo -en "-\0156"
 -n
 
+# Also a simple way of avoiding this problem is by adding an empty character next to the string, like so:
+$ echo "-n "
+-n
+
 # Using printf, which is better than echo in some cases will solve this problem 100%.
 $ printf "%s\n" "-n"
 -n
