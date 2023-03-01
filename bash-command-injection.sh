@@ -47,7 +47,8 @@ $'\151\144' # 151 == i; 144 == d (id gets interpreted as a command)
 ### 3.4: $(( $((1<<1))#10100011 ))
 # Is exatcly the same concept as I mentioned previously (at 2.4), and we're left with 163 (octal)
 
-
+# Conclusion:
+# This whole mess will give us the result $'\154\163', which is "ls"
 
 # Image explanation, by @sirifu4k1
 # https://pbs.twimg.com/media/FqJd-irakAEBPh_.jpg
