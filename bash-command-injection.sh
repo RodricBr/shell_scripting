@@ -20,14 +20,23 @@ $ wc -l <<< about.txt
 # First of all, "$'Something\nSomething-else'" causes escape sequences to be interpreted.
 # So we can call an octal to be interpreted to text, just like so (154 in octal == l; 163 in octal == s):
 $'\154\163'
+
 # Note: (man bash)
 # Words of the form $'string' are treated specially. The word expands to
 # string, with backslash-escaped characters replaced as specified by the ANSI C
 # standard.
 
-# 1.4: \\$(($((1<<1))#10011010))\\$(($((1<<1))#10100011))
+# 1.4: \\$(( $(( 1 << 1 ))#10011010)) \\$(( $(( 1 << 1))#10100011 ))
 # $(()) == POSIX arithmetic expansion
-# 1<<1 == 2, since 
+# Note:
+# The "\\" (double backslash) characters are necessary in order to force the shell to pass
+# a "\$" (single backslash, dollar sign) to the arithmetic expansion.
+
+# 1<<1 == 2
+
+# $(( $((1<<1))#10011010 )) (https://www.rapidtables.com/convert/number/octal-to-binary.html)
+# The number before the "#" is the radix (or base)
+# The number after the "#" must be valid for the radix
 
 # Trying to execute this by it's own, without using $\'\' is not gonna work, here's why:
 
