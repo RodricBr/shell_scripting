@@ -35,17 +35,16 @@ $'\151\144' # 151 == i; 144 == d (id gets interpreted as a command)
 # The "\\" (double backslash) characters are necessary in order to force the shell to pass
 # a "\$" (single backslash, dollar sign) to the arithmetic expansion.
 
-## 2.4: $(( $((1<<1))#10011010 ))
+### 2.4: $(( $((1<<1))#10011010 ))
 # 1<<1 == 2
 # Enclosing two arithmetic expansion inside of each other, so that 2#10011010 (decimal "154" to binary is "10011010") is equal to 154 (decimal)
 # We can use this website "https://www.rapidtables.com/convert/number/binary-to-decimal.html" to transform binary to decimal
-
-## 3.4: $(( $((1<<1))#10100011 ))
-# Is exatcly the same concept as I mentioned previously (at 2.4), and we're left with 163 (decimal)
-
 # The number before the "#" is the radix (or base)
 # The number after the "#" must be valid for the radix
-# In the end, we're left with the result "154"
+# In the end, 2 # 10011010 == 154
+
+### 3.4: $(( $((1<<1))#10100011 ))
+# Is exatcly the same concept as I mentioned previously (at 2.4), and we're left with 163 (decimal)
 
 
 # Trying to execute this by it's own, without using $\'\' is not gonna work, here's why:
