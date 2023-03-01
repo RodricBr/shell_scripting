@@ -40,6 +40,7 @@ $'\151\144' # 151 == i; 144 == d (id gets interpreted as a command)
 # Enclosing two arithmetic expansion inside of each other, so that 2#10011010 (octal "154" to binary is "10011010") is equal to 154 (octal)
 # Text to octal: "http://www.unit-conversion.info/texttools/octal/"
 # Decimal to binary: "https://www.rapidtables.com/convert/number/decimal-to-binary.html"
+# 167 150 157 :: 10100111 = w; 10010110 = h; 10011101 = o
 
 ### 3.4: $(( $((1<<1))#10100011 ))
 # Is exatcly the same concept as I mentioned previously (at 2.4), and we're left with 163 (octal)
