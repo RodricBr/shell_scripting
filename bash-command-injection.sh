@@ -18,7 +18,7 @@ $ wc -l <<< about.txt
 
 ## 1.3: $\' ... \'
 # First of all, "$'Something\nSomething-else'" causes escape sequences to be interpreted.
-# So we can call an decimal to be interpreted to text, just like so (154 in decimal == l; 163 in decimal == s):
+# So we can call an octal to be interpreted to text, just like so (154 in octal == l; 163 in octal == s):
 $'\154\163'
 
 # Another example:
@@ -37,15 +37,12 @@ $'\151\144' # 151 == i; 144 == d (id gets interpreted as a command)
 
 ### 2.4: $(( $((1<<1))#10011010 ))
 # 1<<1 == 2
-# Enclosing two arithmetic expansion inside of each other, so that 2#10011010 (decimal "154" to binary is "10011010") is equal to 154 (decimal)
-# We can use this website "https://www.rapidtables.com/convert/number/binary-to-decimal.html" to transform binary to decimal
-# And use this website to transform decimal to binary "https://www.rapidtables.com/convert/number/decimal-to-binary.html"
-
-# The number before the "#" is the radix (or base)
-# In the end, 2 # 10011010 == 154
+# Enclosing two arithmetic expansion inside of each other, so that 2#10011010 (octal "154" to binary is "10011010") is equal to 154 (octal)
+# Text to octal: "http://www.unit-conversion.info/texttools/octal/"
+# Decimal to binary: "https://www.rapidtables.com/convert/number/decimal-to-binary.html"
 
 ### 3.4: $(( $((1<<1))#10100011 ))
-# Is exatcly the same concept as I mentioned previously (at 2.4), and we're left with 163 (decimal)
+# Is exatcly the same concept as I mentioned previously (at 2.4), and we're left with 163 (octal)
 
 # Conclusion:
 # This whole mess will give us the result $'\154\163', which is "ls"
