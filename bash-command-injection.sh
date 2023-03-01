@@ -48,7 +48,7 @@ $'\151\144' # 151 == i; 144 == d (id gets interpreted as a command)
 # Is exatcly the same concept as I mentioned previously (at 2.4), and we're left with 163 (octal)
 
 
-# Trying to execute this by it's own, without using $\'\' is not gonna work, here's why:
 
+# Image explanation, by @sirifu4k1
 # https://pbs.twimg.com/media/FqJd-irakAEBPh_.jpg
 
