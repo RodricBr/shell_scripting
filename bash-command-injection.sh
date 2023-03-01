@@ -40,6 +40,7 @@ $'\151\144' # 151 == i; 144 == d (id gets interpreted as a command)
 # Enclosing two arithmetic expansion inside of each other, so that 2#10011010 (octal "154" to binary is "10011010") is equal to 154 (octal)
 # We can use this website "https://www.rapidtables.com/convert/number/binary-to-ascii.html" to transform binary to octal
 # But we need to first transform the ASCII to binary, using this website "https://www.rapidtables.com/convert/number/ascii-to-binary.html"
+# Bonus: We can use this website "http://www.unit-conversion.info/texttools/octal/" to transform ASCII to octal
 
 # The number before the "#" is the radix (or base)
 # In the end, 2 # 10011010 == 154
