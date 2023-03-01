@@ -18,26 +18,31 @@ $ wc -l <<< about.txt
 
 ## 1.3: $\' ... \'
 # First of all, "$'Something\nSomething-else'" causes escape sequences to be interpreted.
-# So we can call an octal to be interpreted to text, just like so (154 in octal == l; 163 in octal == s):
+# So we can call an decimal to be interpreted to text, just like so (154 in decimal == l; 163 in decimal == s):
 $'\154\163'
 
+# Another example:
+$'\151\144' # 151 == i; 144 == d (id gets interpreted as a command)
+
+## 1.4: \\$(( $(( 1 << 1 ))#10011010)) \\$(( $(( 1 << 1))#10100011 ))
+# $(()) == POSIX arithmetic expansion
 # Note: (man bash)
 # Words of the form $'string' are treated specially. The word expands to
 # string, with backslash-escaped characters replaced as specified by the ANSI C
 # standard.
 
-# 1.4: \\$(( $(( 1 << 1 ))#10011010)) \\$(( $(( 1 << 1))#10100011 ))
-# $(()) == POSIX arithmetic expansion
 # Note:
 # The "\\" (double backslash) characters are necessary in order to force the shell to pass
 # a "\$" (single backslash, dollar sign) to the arithmetic expansion.
 
+## 2.4: $(( $((1<<1))#10011010 ))
 # 1<<1 == 2
+# Enclosing two arithmetic expansion inside of each other, so that 2#10011010 (decimal "154" to binary is "10011010") is equal to 154 (decimal)
+# We can use this website "https://www.rapidtables.com/convert/number/binary-to-decimal.html" to transform binary to decimal
 
-# Enclosing two arithmetic expansion inside of each other, so that 2#10011010 (octal "154" to binary is "10011010")
-# We can use this website "https://www.rapidtables.com/convert/number/octal-to-binary.html" to transform octal to binary
+## 3.4: $(( $((1<<1))#10100011 ))
+# Is exatcly the same concept as I mentioned previously (at 2.4), and we're left with 163 (decimal)
 
-# $(( $((1<<1))#10011010 )) # (https://www.rapidtables.com/convert/number/octal-to-binary.html)
 # The number before the "#" is the radix (or base)
 # The number after the "#" must be valid for the radix
 # In the end, we're left with the result "154"
@@ -45,6 +50,5 @@ $'\154\163'
 
 # Trying to execute this by it's own, without using $\'\' is not gonna work, here's why:
 
-# Another example:
-$'\151\144' # 151 == i; 144 == d (id gets interpreted as a command)
+# https://pbs.twimg.com/media/FqJd-irakAEBPh_.jpg
 
