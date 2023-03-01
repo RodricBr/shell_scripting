@@ -34,9 +34,14 @@ $'\154\163'
 
 # 1<<1 == 2
 
-# $(( $((1<<1))#10011010 )) (https://www.rapidtables.com/convert/number/octal-to-binary.html)
+# Enclosing two arithmetic expansion inside of each other, so that 2#10011010 (octal "154" to binary is "10011010")
+# We can use this website "https://www.rapidtables.com/convert/number/octal-to-binary.html" to transform octal to binary
+
+# $(( $((1<<1))#10011010 )) # (https://www.rapidtables.com/convert/number/octal-to-binary.html)
 # The number before the "#" is the radix (or base)
 # The number after the "#" must be valid for the radix
+# In the end, we're left with the result "154"
+
 
 # Trying to execute this by it's own, without using $\'\' is not gonna work, here's why:
 
