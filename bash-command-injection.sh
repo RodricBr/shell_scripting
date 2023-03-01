@@ -25,7 +25,11 @@ $'\154\163'
 # string, with backslash-escaped characters replaced as specified by the ANSI C
 # standard.
 
-# 1.4:
+# 1.4: \\$(($((1<<1))#10011010))\\$(($((1<<1))#10100011))
+# $(()) == POSIX arithmetic expansion
+# 1<<1 == 2, since 
+
+# Trying to execute this by it's own, without using $\'\' is not gonna work, here's why:
 
 # Another example:
 $'\151\144' # 151 == i; 144 == d (id gets interpreted as a command)
