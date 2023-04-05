@@ -7,7 +7,8 @@ Um
 Dois
 Tres
 
-# declare -f palavras
+# Exibindo o conteúdo da função que acabamos de definir
+$ declare -f palavras
 
 #############################################################################################################################################################
 
