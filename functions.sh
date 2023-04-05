@@ -32,3 +32,10 @@ NomeDaFuncao{ echo a; }; NomeDaFuncao # Errado e sem os parentesis
 
 function NomeDaFuncao { echo a; }; NomeDaFuncao # Correto sem os parentesis
 function NomeDaFuncao(){ echo a; }; NomeDaFuncao # Correto com os parentesis
+
+# Bonus
+# Exibir todas as funções definidas no sistemas. (As criadas pelo usuário estarão no topo)
+$ declare -F
+declare -f ARREDONDA_ # output...
+declare -f FUNCAO
+declare -f NomeDaFuncao
