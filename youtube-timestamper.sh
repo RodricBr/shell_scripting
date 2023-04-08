@@ -1,3 +1,6 @@
+# We do a lil trolling with youtube timestamper for every second.
+# I don't know why I did this, but it was fun and I learned that "nl" is pretty usefull!
+
 # Since we cannot use variables inside a brace/range expansion, you have to change the timestamp time manually :(
 $ tr -d ' ' <<< $(echo -ne {00..02}:{00..34}"\n") | nl -v0 -s' seconds ' -w1 # This example is for a "02:34" long youtube video
 
