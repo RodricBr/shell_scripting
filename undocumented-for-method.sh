@@ -1,4 +1,4 @@
-# Undocumented method using braces:
+# Undocumented method/hack using braces:
 time for ((X=1; X<=2000; X++)) { echo $((2+2)) &>/dev/null;}
 
 # Default method the we see in many scripts:
