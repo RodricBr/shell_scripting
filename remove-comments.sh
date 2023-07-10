@@ -9,3 +9,10 @@ grep -v -e '^#[[:blank:]]\|^[[:space:]]*$' Arquivo.txt
 # ^#[[:blank:]] == Starting with a "#" followed by a blank character (# )
 # \| == Grep more than one pattern/string
 # ^[[:space:]]*$ == Starts and ends with a space (removing a single empty character)
+
+
+
+# Bonus for practicality:
+alias comments="grep -v -e '^#[[:blank:]]\|^[[:space:]]*$'"
+
+$ comments remove-comments.txt
