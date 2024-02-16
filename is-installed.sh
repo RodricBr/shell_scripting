@@ -19,12 +19,13 @@ function IS_INSTALLED(){
       let n++
     fi
   done
-  printf "${VERDE}All %d programs are installed! \nProceeding...${FIM}\n" "${#INSTALADOS_[@]}"
   # If one not installed program is found, halt and exit program with exit code 1
   if [ "$n" != "0" ]; then
-    printf "${VERME}%d of %d programs are missing!${FIM}\n" "$n" "${#INSTALADOS_[@]}"
+    printf "\n${VERME}%d of %d programs are missing! \nQuitting...${FIM}\n" "$n" "${#INSTALADOS_[@]}"
     printf "+----------------------------------------+\n"
     exit 1
+  else
+    printf "\n${VERDE}All %d programs are installed! \nContinuing...${FIM}\n" "${#INSTALADOS_[@]}"
   fi
   printf "+----------------------------------------+\n"
 }
