@@ -2,7 +2,8 @@
 ```markdown
 - Bash Beginner to Advanced
 - Explanation on the comments of each of the ".sh" files.
-- Shell/Bash scripting notes & pro tips
+- Shell/Bash scripting personal notes & pro tips
+  that I decided to maintain public because they're pretty handy.
 - Created: 2021/06/29
 ```
 
