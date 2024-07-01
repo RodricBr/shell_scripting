@@ -5,7 +5,7 @@ $ compgen -abcdefgjksuv
 -a --> Alias
 -b --> Builtins
 -c --> Commands
--d --> Directory
+-d --> Directory (compgen -d outputs the directories of the current user location (.) )
 -e --> Exported Shell Variables
 -f --> File and functions
 -g --> Groups
